@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+  <style>
+    body {
+      background-color: #343a40;
+      font-family: 'Roboto', sans-serif;
+      color: #ffffff;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .navbar {
+      background-color: #343a40;
+      justify-content: center;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .dashboard-header {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .post-list-item {
+      background-color: #495057;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand mx-auto" href="/">EasyPostBlog</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="dashboard-header">Dashboard</div>
+    <button class="btn btn-primary btn-block" onclick="window.location.href='/create'">Create New Post</button>
+
+<!-- Inside the post-list loop in dashboard.ejs -->
+<ul class="post-list">
+    <% posts.forEach(function(post) { %>
+      <li class="post-list-item">
+        <!-- Making the entire post box a clickable link -->
+        <a href="/post/<%= post._id %>" style="text-decoration: none; color: inherit;">
+          <h5><%= post.title %></h5>
+          <p><small>Posted on <%= new Date(post.date).toLocaleDateString() %></small></p>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+  
+  
+  </div>
+</body>
+
+</html>

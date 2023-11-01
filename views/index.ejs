@@ -1,36 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Blog</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <!-- Link to Bootstrap CSS (CDN) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyPostBlog</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background-color: #343a40;
+      font-family: 'Roboto', sans-serif;
+      color: #ffffff;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .navbar {
+      background-color: #007bff;
+      justify-content: center;
+    }
+    .btn-primary {
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    .welcome-message {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">My Blog</a>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">EasyPostBlog</a>
+      <div class="ml-auto">
+        <% if (user) { %>
+          <a class="btn btn-danger" href="/logout">Log Out</a>
+        <% } else { %>
+          <a class="btn btn-primary" href="/login">Log In</a>
+          <a class="btn btn-secondary" href="/register">Sign Up</a>
+        <% } %>
+      </div>
+    </div>
   </nav>
-  <div class="container my-5">
-    <h1 class="mb-4">Welcome to My Blog</h1>
-    <form action="/create" method="post">
-      <div class="form-group">
-        <input type="text" class="form-control" name="title" placeholder="Enter your blog title">
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" name="content" placeholder="Write your blog content"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Create Blog</button>
-    </form>
-    <h2 class="mt-5">Recent Blog Posts</h2>
-    <ul class="list-group">
-      <% for (let post of posts) { %>
-        <li class="list-group-item">
-          <h3><%= post.title %></h3>
-          <p><%= post.content %></p>
-          <p class="text-muted">Posted on <%= post.date.toLocaleDateString() %></p>
-        </li>
-      <% } %>
-    </ul>
+  <div class="container">
+    <div class="welcome-message">Welcome to EasyPostBlog!</div>
+    <button class="btn btn-primary btn-lg" id="createBlogBtn">Create Blog</button>
+    <button class="btn btn-primary btn-lg" id="showBlogsBtn">Show Recent Blogs</button>
   </div>
+
+  <script>
+    document.getElementById('createBlogBtn').addEventListener('click', function() {
+      window.location.href = '<%= user ? "/create" : "/login" %>';
+    });
+
+    document.getElementById('showBlogsBtn').addEventListener('click', function() {
+      window.location.href = '<%= user ? "/dashboard" : "/login" %>';
+    });
+  </script>
 </body>
 </html>

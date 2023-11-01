@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Post</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
+  <style>
+    body {
+      background-color: #343a40;
+      font-family: 'Roboto', sans-serif;
+      color: #ffffff;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .navbar {
+      background-color: #343a40;
+      justify-content: center;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .form-group label,
+    .form-group input,
+    .form-group textarea {
+      color: #ffffff;
+    }
+    .form-group input,
+    .form-group textarea {
+      background-color: #495057;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand mx-auto" href="/">EasyPostBlog</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h2 class="mb-4">Create New Post</h2>
+    <form action="/create" method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+  </div>
+</body>
+
+</html>
