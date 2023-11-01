@@ -30,4 +30,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Author:
 
-Sanket Patil and Srusthi Bhogate
+Sanket Patil and Srushti Bhogate
