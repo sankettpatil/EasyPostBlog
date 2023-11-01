@@ -2,15 +2,15 @@
 
 Description:
 
-This project is a simple yet powerful blog site built using Node.js, Express.js, MongoDB, EJS, and Bootstrap. It allows users to create, read, and share blog posts. The project includes features like date-based sorting and easy-to-use interfaces for blog creation and viewing. It's a perfect starting point for bloggers and developers who want to create their own blogging platform.
+This project is a simple blog site built using Node.js, Express, MongoDB, and EJS. Users can register, log in, create, and view blog posts. The site is designed to provide a clean and user-friendly interface for blog management.
 
-Key Features:
+Features:
 
-Create and publish blog posts with a title and content.
-Display blog posts on the homepage in chronological order.
-A clean and user-friendly interface designed with Bootstrap.
-Easy integration with MongoDB to store blog posts.
-Getting Started:
+User authentication (Login/Register)
+Create and view blog posts
+Dashboard to manage blog posts
+Express sessions and flash messages for better user interaction
+
 
 To run this project locally, follow these steps:
 
